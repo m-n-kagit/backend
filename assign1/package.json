@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "basic.js",
+  "scripts": {
+    "start": "node basic.js"
+  },
+  "author": "Mohit",
+  "license": "ISC",
+  "description": ""
+}
