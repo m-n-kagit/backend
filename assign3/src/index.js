@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 import { DB_NAME } from "./constants.js";
+import connectDB from "./db/index.js";
+
 // const app = express()
 
-
+connectDB()
 /*
 import express from "express"
 //better approach to connect with error handling
