@@ -5,6 +5,15 @@ import connectDB from "./db/index.js";
 // const app = express()
 
 connectDB()
+.then(()=> { 
+    app.listen(process.env.PORT ,()=> {
+        console.log(`Server running at port: ${process.env.PORT}`);
+        
+    })
+}).catch((err)=>{
+    console.log(err);
+    
+})
 /*
 import express from "express"
 //better approach to connect with error handling
