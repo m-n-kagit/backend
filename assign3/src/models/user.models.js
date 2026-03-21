@@ -47,7 +47,7 @@ userSchema.pre("save",async function(next){ //pre save hook for hashing password
     if(!this.isModified("password")){
         return next()
     }
-    this.password = await bcrypt.hash(this.password,10)
+    this.password = await bcrypt.hash(this.password,10) //hashing password with salt rounds of 10
     next() //call next middleware or save the document if no more middleware is present
 })
 userSchema.methods.isPasswordCorrect = async function(password){

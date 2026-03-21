@@ -1,0 +1,10 @@
+import { Router } from "express"
+import {registerUser} from "../controller/user.controller.js"
+const router = Router()
+
+router.route("/register").post(registerUser) // we are using post method for registration because
+//  we are sending data to the server 
+// and also for security reasons as get method will expose the data in the url 
+// and also for caching issues
+// router.route("/login").post() // we will implement login functionality later
+export default router
