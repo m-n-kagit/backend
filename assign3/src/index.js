@@ -1,17 +1,17 @@
-import mongoose from "mongoose";
-import express from "express"
-import { DB_NAME } from "./constants.js";
+import dotenv from "dotenv"
 import connectDB from "./db/index.js";
+import { app} from "./app.js";
 
-const app = express()
+dotenv.config() // to load environment variables from .env file into process.env
 
 connectDB()
 .then(()=> { 
-    app.listen(process.env.PORT ,()=> {
+    app.listen(process.env.PORT || 8000,()=> {
         console.log(`Server running at port: ${process.env.PORT}`);
         
     })
-}).catch((err)=>{
+})
+.catch((err)=>{
     console.log(err);
     
 })

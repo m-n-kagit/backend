@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser" //cookies acces and can be set 
-import userRouter from './routes/user.routes.js'
 const app = express();
 
 app.use(cors({
@@ -18,7 +17,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 import userRouter from './routes/user.routes.js'
-app.use("/api/v1/user",userRouter) // not directly using app.get beacuase we want to keep our code organize
+app.use("/api/v1/user/",userRouter) // not directly using app.get beacuase we want to keep our code organize
 // d and maintainable by separating routes into different files
 //to get this we are getting into the middleware
 // stack of express and using the userRouter for handling all routes starting with /user
