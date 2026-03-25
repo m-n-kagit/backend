@@ -37,7 +37,14 @@ const videoschema = new Schema(
         }
     }
 )
-
-videoschema.plugin(mongooseAggregatePaginate)
+//pagination means dividing the data into pages 
+// and fetching only a limited number of records 
+// per page to improve performance and user experience 
+// when dealing with large datasets.
+videoschema.plugin(mongooseAggregatePaginate) 
+//plugin used here for pagination 
+// of videos when we fetch them from database 
+// using aggregate function in video 
+// controller
 
 export const Video = mongoose.model("Video", videoschema)

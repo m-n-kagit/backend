@@ -1,4 +1,4 @@
-import mongoose, {Schema} from mongoose;
+import mongoose, {Schema} from "mongoose";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
@@ -13,7 +13,7 @@ const userSchema = new Schema(
         },
         fullname : {
             type: String, 
-            required : type,
+            required : true,
             trim : true,
             index : true
         },
@@ -45,7 +45,8 @@ const userSchema = new Schema(
 
 userSchema.pre("save",async function(next){ //pre save hook for hashing password before saving to database
     if(!this.isModified("password")){
-        return next()
+        return next() // next used here to skip the hashing process if the password field is not modified, 
+        // which is useful when updating other user details without changing the password.
     }
     this.password = await bcrypt.hash(this.password,10) //hashing password with salt rounds of 10
     next() //call next middleware or save the document if no more middleware is present

@@ -19,3 +19,8 @@ class ApiError extends Error{
         }
     }
 }
+
+export {ApiError}; // {} signifies for class 
+// and not for object because we are 
+// exporting class and not an instance
+//  of class. If we want
